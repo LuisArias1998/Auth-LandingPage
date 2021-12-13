@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/storage';
+import {AngularFireStorage} from '@angular/fire/storage'
 import { environment } from '../../environments/environment';
 
 
-firebase.initializeApp(environment.firebaseConfig);
+
+
 
 
 @Injectable({
@@ -12,20 +12,11 @@ firebase.initializeApp(environment.firebaseConfig);
 })
 export class StorageService {
 
-  storageRef=firebase.app().storage().ref();
 
-  constructor() { }
 
-  async subirImagen(nombre:string, imgBase64:any){
+  constructor(public af: AngularFireStorage) { }
 
-    try{
-      let respuesta=await this.storageRef.child("blogs/"+nombre).putString(imgBase64,'data_url');
-      console.log(respuesta);
-      return await respuesta.ref.getDownloadURL();
-    }catch(err){
-      console.log(err);
-      return null;
-    }
-
+  async subirImagen(nombre:string,archivos:any){
+    this.af.upload(nombre,archivos)
   }
 }

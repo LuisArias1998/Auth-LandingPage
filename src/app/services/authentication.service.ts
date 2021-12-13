@@ -7,12 +7,28 @@ import {User} from 'firebase';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-  constructor() { }
-  login(){
-
+  public user:User;
+  constructor(public afAuth:AngularFireAuth) { }
+  async login(email:string, password:string){
+    try{
+      const result = await this.afAuth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      return result;
+    }catch(error){
+      console.log(error);
+    }
   }
-  register(){
-    
+  async register(email:string, password:string){
+    try{
+      const result = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      return result;
+    }catch(error){
+      console.log(error);
+    }
   }
 }

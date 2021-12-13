@@ -3,6 +3,9 @@ import Swal from 'sweetalert2';
 import { StorageService } from '../../services/storage.service';
 import { BlogsService } from '../../services/blogs.service';
 import { Blogs } from '../../models/Blogs';
+import {AngularFireStorage} from '@angular/fire/storage'
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-blogs-format',
@@ -16,20 +19,27 @@ export class BlogsFormatComponent implements OnInit {
   public titulo:string;
   public descripcion:string;
   public autor:string;
-   fecha:string =  new Date().toISOString().split('T')[0];
+  public path:string;
+  public filePath:string;
+  public ref;
+  public urlImage;
+
+  uploadPercent: Observable<number>;
+
+  fecha:string =  new Date().toISOString().split('T')[0];
 
 
   blog:Blogs={
     id:0,
     title:"",
     description:"",
-    image:"",
+    image:'',
     created_at:this.fecha,
     autor:""
   };
 
-  constructor(private storageService:StorageService, private blogsService:BlogsService) {
-   }
+  constructor(private storageService:StorageService, private blogsService:BlogsService, public storage: AngularFireStorage) {
+  }
 
   ngOnInit(): void {
     let archivos:any;
@@ -38,8 +48,7 @@ export class BlogsFormatComponent implements OnInit {
 
   imagenes:any[]=[];
   onUpload(e:any){
-    this.archivos = e.target.files;
-    this.reader = new FileReader();    
+    this.archivos = e.target.files[0];   
   }
 
   uploadedImage(){
@@ -50,29 +59,52 @@ export class BlogsFormatComponent implements OnInit {
     if(!(this.titulo.length===0)){
       if(!(this.descripcion.length===0)){
         if(!(this.autor.length===0)){
-          this.reader.readAsDataURL(this.archivos[0]);
-          this.reader.onloadend=()=>{
-          this.imagenes[0]=this.reader.result
-          this.storageService.subirImagen(this.titulo +"_"+Date.now(),this.reader.result).then(urlImagen=>{
-            this.blog.image=urlImagen;
-            this.blog.autor=this.autor;
-            this.blog.title=this.titulo;
-            this.blog.description=this.descripcion;
+            try{
+              this.filePath="blogs/"+this.titulo+"_"+Date.now();
+              this.ref=this.storage.ref(this.filePath);
+              const task = this.storage.upload(this.filePath,this.archivos);
+              this.uploadPercent=task.percentageChanges();
+              task.snapshotChanges().pipe(
+                finalize(() => {
+                  this.ref.getDownloadURL().subscribe(url => {
+                    console.log(url); 
+                    this.blog.image=url;
+                    this.blog.autor=this.autor;
+                    this.blog.title=this.titulo;
+                    this.blog.description=this.descripcion;
+                    this.blogsService.createBlogs(this.blog).subscribe(
+                    res=>{
+                      console.log("se mandó a crear");
+                      console.log(this.blog);
+                      console.log(res);
+      
+                      Swal.fire({
+                        icon: 'success',
+                        title: 'Completado!...',
+                        text: 'Blog creado con éxito'
+                      })
+      
+                    },err=>Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Fallo en la base de datos'
+                    })
+                  )
+                  });
+                })
+              ).subscribe();
+            }catch(error){
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Fallo en firebase'
+              })
+            }
 
-            this.blogsService.createBlogs(this.blog).subscribe(
-              res=>{
-                console.log("se mandó a crear");
-                console.log(this.blog);
-                console.log(res);
-              },err=>console.log(err)
-            )
-
-            console.log(urlImagen);
-          });
+        
           
 
-  
-          }
+
         }else{
           Swal.fire({
             icon: 'error',
