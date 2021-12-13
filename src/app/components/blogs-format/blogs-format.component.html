@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg nav-down fixed-top navbar-absolute navbar-transparent gris" id="navegacion">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" class="navbar-brand" [routerLink]="['/presentation']" src="./assets/img/presentation-page/Logo-CV2.png" style="width: 100px; height: 110px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar bar1" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: white;"></span>
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/blog-background.jpg');">
+        <div class="filter"></div>
+        <div class="container main-page-crm">
+            <div class="row">
+                <div class="ml-auto mr-auto">
+                    <div class="card card-register" style="background-color: white;">
+                        <div class="card-header header-raised header-primary text-center" style="background-color: white;">
+                            <h3 class="font-weight-bold" style="color: rgb(98, 98, 98);"><b>Bienvenido a Blogs</b></h3>
+                        </div>
+                        <form role="form" id="contact-form" method="post">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row justify-content-center m-0">
+                                    <a class="btn btn-rose btn-round" style="background-color: rgb(249, 161, 27); border: none; width: 300px; height: 40px;">Iniciar sesión</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="page-header" style="background-image: url('./assets/img/blog-background.jpg'); max-height: 4000px;" *ngIf="true">
+    <div class="container main-page-crm">
+        <h2>Llenado de blog </h2>
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Autor</label>
+                <input type="email" class="form-control" id="autor" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Título del blog</label>
+                <input type="email" class="form-control" id="titulo" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripción del Blog</label>
+                <textarea class="form-control" id="descripcion" rows="4"></textarea>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Introduzca la url de la imagen (PNG, JPG)</label>
+                <input type="file" accept=".png, .jpg, .jpeg" (change)="onUpload($event)" id="inputImage">
+            </div>
+            <br>
+
+            <img src="{{imagenes[0]}}" *ngIf="imagenes[0]!=null" alt="Imágen subida" width="640" height="480">
+            <br>
+            <a class="btn btn-rose btn-round" (click)="uploadedImage()" style="background-color: rgb(40, 40, 175); border: none; margin-top: 5%; margin-bottom: 10%;">Subir blog</a>
+            <br>
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute nav-down fixed-top gris" color-on-scroll="500" id="navsita">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" [routerLink]="['/presentation']" class="navbar-brand" src="./assets/img/presentation-page/Logo-CV2.png" style="width: 95px; height: 115px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: white;"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a href="#funciones" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Funciones</a>
+                </li>
+                <li>
+                    <a href="#precio" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Precio</a>
+                </li>
+                <li>
+                    <a href="#blog" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!--
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute nav-down fixed-top gris" id="navsita">
+    <div class="container">
+        <div class="row">
+            <input type="image" src="./assets/img/presentation-page/Logo-CV2.png" style="width: 70px; height: 70px;" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">     
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <a href="#funciones" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Funciones</a>
+                    <a href="#precio" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Precio</a>
+                    <a href="#blog" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Blog</a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral" style="font-size: 14px;">Iniciar Sesión</a>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral" style="font-size: 14px;">Contacto</a>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+-->

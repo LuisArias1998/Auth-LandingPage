@@ -1,0 +1,161 @@
+<nav class="navbar navbar-expand-lg nav-down fixed-top navbar-absolute navbar-transparent " id="navegar">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" class="navbar-brand" [routerLink]="['/presentation']" src="./assets/img/presentation-page/Logo-C.png" style="width: 95px; height: 115px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: rgb(99, 99, 99);"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: rgb(99, 99, 99);"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: rgb(99, 99, 99);"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral header-style" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral header-style" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="wrapper ">
+    <div class="page-header" style="background-image: url('./assets/img/blog/custo-arrow.jpg'); max-height: 3000px; ">
+
+        <div class="container main-page-crm" style="background-color: white; opacity: .95;">
+            <h3 class="font-weight-bold" style="color: rgb(99, 99, 99);"> Customent beneficiará a tu empresa </h3>
+            <div class="row">
+                <div class="col-md-6 mr-auto" style="padding-right: 30px;">
+                    <div class="row">
+                        <h4 style="color: rgb(99, 99, 99);"><b>Agenda</b></h4>
+
+                        <p class="text-style" style="margin-top: 2%;">En este apartado podrás tener una visión detallada de tus actividades y las de tu equipo de trabajo. En ella se registran las reuniones de equipo, asistencia a formaciones y, tal vez lo más importante, las visitas a clientes.
+
+                        </p>
+                        <br>
+                        <div class=" col-md-8 ml-auto mr-auto">
+                            <img class="img-border" src="./assets/img/presentation-page/agenda.jpg" alt="Card image cap" style="width: 350px; height: 250px;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4 style="color: rgb(99, 99, 99);"><b>Actividades</b></h4>
+                        <br>
+                        <p class="text-style" style="margin-top: 2%;"> Como parte del equipo de trabajo puedes crear actividades y asignártelas a ti mismo o a algún compañero. En este módulo podrás comprobar si ya se han realizado o cuándo hay que llevar a cabo las actividades. Además, la plataforma
+                            envía e-mails como recordatorio.
+                            <br> El módulo de Actividades es el sitio en el que puede crear y asociar tareas comerciales, eventos y llamadas. Cada actividad tiene información vital acerca de la fecha, la hora y más.
+                        </p>
+                        <br>
+                        <div class=" col-md-8 ml-auto mr-auto">
+                            <img class="img-border" src="./assets/img/presentation-page/tareas2.jpg" alt="Card image cap" style="width: 350px; height: 250px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding-left: 30px;">
+                    <div class="row">
+
+                        <h4 style="color: rgb(99, 99, 99);"><b>Oportunidades</b></h4>
+                        <br>
+                        <p class="text-style" style="margin-top: 2%;">Una Oportunidad, en el contexto de un CRM, es un proyecto de negocio. Se trata de todo un conjunto de información, reuniones, llamadas, documentos y otros elementos que reunidos tienen por objetivo la consecución de un negocio.
+                            <br> En esta pestaña se registran todas las actividades comerciales: las oportunidades ganadas, perdidas o en proceso. También se pueden añadir tareas, notas, e-mails, toda la información necesaria para conseguir nuestro objetivo,
+                            vender.
+                            <br> La gestión de oportunidades genera los siguientes beneficios en la empresa:
+                        </p>
+                        <ul>
+                            <li class="text-style">
+                                Acorta el tiempo necesario para cerrar una venta
+                            </li>
+                            <li class="text-style">
+                                Mejora la calidad de las reuniones comerciales
+                            </li>
+                            <li class="text-style">
+                                Da una imagen de mayor profesionalidad al cliente
+                            </li>
+                            <li class="text-style">
+                                Permite el traspaso de información entre comerciales mucho más rápido
+                            </li>
+                        </ul>
+
+                        <br>
+                        <div class=" col-md-8 ml-auto mr-auto">
+                            <img class="img-border" src="./assets/img/presentation-page/oportunidades.jpg" alt="Card image cap" style="width: 350px; height: 250px;">
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <h4 style="color: rgb(99, 99, 99);"><b>Clientes</b></h4>
+                        <br>
+                        <p class="text-style" style="margin-top: 2%;">Esta función te permite insertar, nodificar o eliminar la información correspondientes a cada cliente o empresa relacionada. Así, se tiene la posibilidad, entre otras cosas: de cobrar, a los clientes que se estime necesario.</p>
+                        <div class=" col-md-8 ml-auto mr-auto">
+                            <img class="img-border" src="./assets/img/presentation-page/clientes-prev.jpg" alt="Card image cap" style="width: 350px; height: 250px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer main-page-crm" style="background-color: rgb(1, 66, 106);">
+    <div class="container">
+        <div class="row justify-content-center m-0">
+            <div class="col-auto " style="margin-top: 3%;">
+                <img src="./assets/img/presentation-page/Logo-CV2-CustomentV2.png" alt="" width="200px" height="110px">
+            </div>
+            <div class="col-md-8 " style="margin-top: 5%;">
+                <p class="text-style-light-footer" style="text-align: center;">Customent te compañará para llevar tus ventas a otro nivel cerrando tratos antes, tomando mejores decisiones, ahorrando tiempo y más.</p>
+
+            </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <div class="col-auto " style="margin-top: 2%; ">
+                <button class="btn btn-just-icon btn-facebook mr-1">
+                            <i class="fa fa-facebook"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-instagram mr-1">
+                            <i class="fa fa-instagram"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-twitter mr-1">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-whatsapp mr-1" style="background-color: rgb(37, 211, 102); border-color: rgb(37, 211, 102);">
+                            <i class="fa fa-whatsapp" style="background-color: rgb(37, 211, 102);"></i>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 ml-auto">
+                        <ul class="navbar-nav">
+                            <a [routerLink]="['/presentation']" class="text-style-light-footer" style="font-size: 12px;">HOME</a>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="navbar-nav">
+                            <a [routerLink]="['/contactus']" class="text-style-light-footer" style="font-size: 12px;">CONTACTO</a>
+                        </ul>
+                    </div>
+                </div>
+                <hr style=" border-color: rgb(99, 99, 99);">
+            </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-auto">
+                <span class="copyright">
+                    © {{date | date: 'yyyy'}} Zitheonsoft | Todos los derechos reservados
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

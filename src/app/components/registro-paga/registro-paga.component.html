@@ -1,0 +1,188 @@
+<nav class="navbar navbar-expand-lg nav-down fixed-top navbar-absolute navbar-transparent gris" id="navegacion">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" class="navbar-brand" [routerLink]="['/presentation']" src="./assets/img/presentation-page/Logo-CV2-CustomentV2.png" style="width: 220px; height: 140px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: white;"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral header-style-light" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral header-style-light" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/register-page-header.jpg');">
+        <div class="filter"></div>
+        <div class="container main-page-crm">
+            <div class="row">
+                <div class="ml-auto mr-auto">
+                    <div class="card card-contact">
+                        <div class="card-header header-raised header-primary text-center">
+                            <h3 class="card-title">Registro</h3>
+                        </div>
+                        <form role="form" id="contact-form" method="post" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="apellido" class="form-control" placeholder="Apellido" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico" formControlName="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="password" name="compañia" class="form-control" placeholder="Contraseña" formControlName="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="password" name="industria" class="form-control" placeholder="Confirmar contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="number" name="telefono" class="form-control" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" value="">Estoy de acuerdo con el
+                                              <a (click)="modal.open(contenido)" style="color: blue;"> aviso de privacidad</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row justify-content-center m-0">
+                                    <button class="btn btn-rose btn-round" type="submit" style="background-color: rgb(249, 161, 27); border: none; width: 300px; height: 40px;">Registrarse</button>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title"> <b> Aviso de privacidad </b> </h4>
+
+    </div>
+    <div class="modal-body">
+        <p>De conformidad con lo establecido en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, <b> Zitheonsoft </b>pone a su disposición el siguiente aviso de privacidad.</p>
+        <p> <b>Zitheonsoft</b>, es responsable del uso y protección de sus datos personales, en este sentido y atendiendo las obligaciones legales establecidas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, a través de
+            este instrumento se informa a los titulares de los datos, la información que de ellos se recaba y los fines que se le darán a dicha información. Además de lo anterior, informamos a usted que <b>Zitheonsoft</b>, tiene su domicilio ubicado en:
+            <br> <br> Tabasco 245 Sur, Ciudad Obregón, Sonora, México.
+            <br> <br>Los datos personales que recabamos de usted serán utilizados para las siguientes finalidades, las cuales son necesarias para concretar nuestra relación con usted, así como para atender los servicios y/o pedidos que solicite:
+            <br> <br>Recolección para mantener y mejorar el Servicio.
+            <br> <br>Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, utilizaremos los siguientes datos personales:
+
+        </p>
+        <br> <br>
+        <ul>
+            <li>Nombre completo
+            </li>
+            <li>Correo electrónico
+            </li>
+            <li>Teléfono
+            </li>
+            <li>Compañía
+            </li>
+        </ul>
+        <br>
+        <p>Por otra parte, informamos a usted, que sus datos personales no serán compartidos con ninguna autoridad, empresa, organización o persona distintas a nosotros y serán utilizados exclusivamente para los fines señalados.
+            <br> <br>Usted tiene en todo momento el derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal
+            en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); de igual manera, tiene derecho a que su información se elimine de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente
+            (Cancelación); así como también a oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como derechos ARCO.
+            <br>Para el ejercicio de cualquiera de los derechos ARCO, se deberá presentar la solicitud respectiva a través del siguiente correo electrónico:
+        </p>
+        <br>
+        <p style="color: blue;"><u> contacto@zitheonsoft.com </u></p>
+        <br>
+        <p>Lo anterior también servirá para conocer el procedimiento y requisitos para el ejercicio de los derechos ARCO.
+            <br>En todo caso la respuesta a la solicitud se dará en el siguiente plazo: 72 horas. Los datos de contacto de la persona o departamento de datos personales, que está a cargo de dar trámite a las solicitudes de derechos ARCO, son los siguientes:
+        </p>
+        <br>
+        <ul>
+            <li>
+                Nombre del responsable: Administración
+            </li>
+            <li>
+                Domicilio: Tabasco 245 Sur, Ciudad Obregón, Sonora, México.
+            </li>
+            <li>
+                Teléfono: 644 408 1294
+            </li>
+            <li>
+                Correo electrónico: contacto@zitheonsot.com
+            </li>
+        </ul>
+        <p>
+            Cabe mencionar, que en cualquier momento usted puede revocar su consentimiento para el uso de sus datos personales. Del mismo modo, usted puede revocar el consentimiento que, en su caso, nos haya otorgado para el tratamiento de sus datos personales.
+            <br> <br>Asimismo, usted deberá considerar que para ciertos fines la revocación de su consentimiento implicará que no podamos seguir prestando el servicio que nos solicitó, o la conclusión de su relación con nosotros.
+            <br> Para revocar el consentimiento que usted otorga en este acto o para limitar su divulgación, se deberá presentar la solicitud respectiva a través del siguiente correo electrónico:
+        </p>
+        <br>
+        <p style="color: blue;"><u> contacto@zitheonsoft.com </u></p>
+        <br>
+        <p>Del mismo modo, podrá solicitar la información para conocer el procedimiento y requisitos para la revocación del consentimiento, así como limitar el uso y divulgación de su información personal.br
+            <br>En cualquier caso, la respuesta a las peticiones se dará a conocer en el siguiente plazo: 72 horas.
+            <br> <br> Cambios en nuestro modelo de negocio, o por otras causas, por lo cual, nos comprometemos a mantenerlo informado sobre los cambios que pueda sufrir el presente aviso de privacidad, sin embargo, usted puede solicitar información sobre
+            si el mismo ha sufrido algún cambio a través del siguiente correo electrónico:
+        </p>
+        <br>
+        <p style="color: blue;"><u> contacto@zitheonsoft.com </u></p>
+        <br>
+    </div>
+    <div class="modal-footer">
+
+        <div class="col-md-6 ml-auto mr-auto">
+            <p style="text-align: center;">
+                © 2021 Zitheonsoft | Todos los derechos reservados
+            </p>
+        </div>
+
+    </div>
+</ng-template>

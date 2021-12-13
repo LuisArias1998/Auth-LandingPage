@@ -1,0 +1,27 @@
+.header-style {
+    font-size: 15px;
+    color: rgb(99, 99, 99);
+}
+
+.header-style-light {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.gris {
+    background-color: rgba(9, 66, 106);
+    color: white;
+}
+
+.toggled {
+    background-color: rgba(9, 66, 106);
+}
+
+::after {
+    color: rgb(99, 99, 99);
+    background-color: rgba(9, 66, 106);
+}
+
+html {
+    scroll-behavior: smooth;
+}

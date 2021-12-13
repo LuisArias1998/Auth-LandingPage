@@ -1,0 +1,85 @@
+.header-style {
+    font-size: 15px;
+    color: rgb(99, 99, 99);
+}
+
+.header-style-light {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.gris {
+    background-color: rgba(9, 66, 106);
+}
+
+::after {
+    color: rgb(99, 99, 99);
+    background-color: rgba(9, 66, 106);
+}
+
+.text-style {
+    font-size: 16px;
+    color: rgb(99, 99, 99);
+    text-align: justify;
+}
+
+.text-style-light {
+    font-size: 16px;
+    color: white;
+}
+
+.text-style-bigger {
+    font-size: 19px;
+    color: rgb(99, 99, 99);
+}
+
+.text-style-light-bigger {
+    font-size: 19px;
+    color: white;
+}
+
+.text-title-light {
+    font-size: 22px;
+    color: white;
+}
+
+.text-title-light-bigger {
+    font-size: 30px;
+    color: white;
+}
+
+.text-title {
+    font-size: 22px;
+    color: rgb(99, 99, 99);
+}
+
+.text-title-bigger {
+    font-size: 30px;
+    color: rgb(99, 99, 99);
+}
+
+.main-page-crm {
+    margin-top: 200px;
+}
+
+.img-border {
+    border-radius: 20px;
+    box-shadow: 9px 14px 28px -17px rgba(0, 0, 0, 0.5);
+}
+
+.footer-box {
+    margin-top: 20%;
+}
+
+.footer-list {
+    height: 20px;
+}
+
+.footer-text {
+    color: rgb(99, 99, 99);
+}
+
+.text-style-light-footer {
+    font-size: 12px;
+    color: rgb(140, 140, 140);
+}

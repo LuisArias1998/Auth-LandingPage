@@ -31,7 +31,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/angular2-multiselect-dropdown/themes/default.theme.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/css/nucleo-icons.css",
+              "src/assets/scss/paper-kit.scss",
+              "src/assets/demo/demo.css"
             ],
             "scripts": []
           },
@@ -122,6 +127,16 @@
             "production": {
               "devServerTarget": "crm-landingpage:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "crm-landingpage:build:production",
+            "firebaseProject": "landingpagecrm",
+            "firebaseHostingSite": "landingpagecrm"
           }
         }
       }

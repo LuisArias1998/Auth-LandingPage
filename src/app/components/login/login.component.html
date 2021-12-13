@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg nav-down fixed-top navbar-absolute navbar-transparent gris" id="navegacion">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" class="navbar-brand" [routerLink]="['/presentation']" src="./assets/img/presentation-page/Logo-CV2-CustomentV2.png" style="width: 220px; height: 140px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: white;"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral header-style-light" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral header-style-light" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/register-page-header.jpg');">
+        <div class="filter"></div>
+        <div class="container main-page-crm">
+            <div class="row">
+                <div class="ml-auto mr-auto">
+                    <div class="card card-register" style="background-color: white;">
+                        <div class="card-header header-raised header-primary text-center" style="background-color: white;">
+                            <h3 class="font-weight-bold" style="color: rgb(98, 98, 98);"><b>Bienvenido</b></h3>
+                        </div>
+                        <form role="form" id="contact-form" method="post" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="Correo electrónico" formControlName="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="Contraseña" formControlName="password">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="row justify-content-center m-0">
+                                    <button class="btn btn-rose btn-round" type="submit" style="background-color: rgb(249, 161, 27); border: none; width: 300px; height: 40px;">Iniciar sesión</button>
+                                    <br>
+                                </div>
+                                <!--<div class="row justify-content-center m-0">
+                                    <a href="">¿Olvidaste tu contraseña?</a>
+                                </div>-->>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

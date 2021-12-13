@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg nav-down fixed-top navbar-absolute navbar-transparent " id="navegar">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" class="navbar-brand" [routerLink]="['/presentation']" src="./assets/img/presentation-page/Logo-C.png" style="width: 95px; height: 115px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: rgb(99, 99, 99);"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: rgb(99, 99, 99);"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: rgb(99, 99, 99);"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral header-style" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral header-style" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/blog/custo-arrow.jpg');">
+        <div class="container main-page-crm" style="background-color: white; opacity: .95;">
+            <div class="row justify-content-center m-0">
+                <div class="col-auto">
+                    <h4 class="col-md-6 ml-auto mr-auto font-weight-bold" style="color: rgb(99, 99, 99); text-align: center;">{{SPblogs.title_blog}}</h4>
+                    <br>
+                    <div class="row justify-content-center m-0">
+                        <div class="ml-auto mr-auto">
+                            <img src="{{SPblogs.img_blog}}" width="640" height="480" alt="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto " style="text-align: center;">
+                            <p class="text-style" style="padding: 2px;">{{SPblogs.description_blog}}
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer " style="background-color: rgb(1, 66, 106);">
+    <div class="container">
+        <div class="row justify-content-center m-0">
+            <div class="col-auto " style="margin-top: 3%;">
+                <img src="./assets/img/presentation-page/Logo-CV2-CustomentV2.png" alt="" width="200px" height="110px">
+            </div>
+            <div class="col-md-8 " style="margin-top: 5%;">
+                <p class="text-style-light-footer" style="text-align: center;">Customent te compañará para llevar tus ventas a otro nivel cerrando tratos antes, tomando mejores decisiones, ahorrando tiempo y más.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <div class="col-auto " style="margin-top: 2%; ">
+                <button class="btn btn-just-icon btn-facebook mr-1">
+                            <i class="fa fa-facebook"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-instagram mr-1">
+                            <i class="fa fa-instagram"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-twitter mr-1">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                <button class="btn btn-just-icon btn-whatsapp mr-1" style="background-color: rgb(37, 211, 102); border-color: rgb(37, 211, 102);">
+                            <i class="fa fa-whatsapp" style="background-color: rgb(37, 211, 102);"></i>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 ml-auto">
+                        <ul class="navbar-nav">
+                            <a [routerLink]="['/presentation']" class="text-style-light-footer" style="font-size: 12px;">HOME</a>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="navbar-nav">
+                            <a [routerLink]="['/contactus']" class="text-style-light-footer" style="font-size: 12px;">CONTACTO</a>
+                        </ul>
+                    </div>
+                </div>
+                <hr style=" border-color: rgb(99, 99, 99);">
+            </div>
+        </div>
+        <div class="row justify-content-center m-0">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-auto">
+                <span class="copyright">
+                    © {{date | date: 'yyyy'}} Zitheonsoft | Todos los derechos reservados
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

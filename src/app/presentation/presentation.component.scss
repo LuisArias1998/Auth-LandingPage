@@ -1,0 +1,145 @@
+.scroll-move {
+    scroll-behavior: smooth;
+}
+
+.main-page-crm {
+    margin-top: 200px;
+}
+
+.section-style {
+    background-color: rgb(255, 255, 255);
+}
+
+.section-style-orange {
+    background-color: rgb(249, 161, 27);
+}
+
+.section-style-blue {
+    background-color: rgb(9, 66, 106);
+}
+
+.text-style {
+    font-size: 16px;
+    color: rgb(99, 99, 99);
+}
+
+.text-style-light {
+    font-size: 16px;
+    color: white;
+}
+
+.text-style-bigger {
+    font-size: 19px;
+    color: rgb(99, 99, 99);
+}
+
+.text-style-light-bigger {
+    font-size: 19px;
+    color: white;
+}
+
+.text-style-light-footer {
+    font-size: 12px;
+    color: rgb(140, 140, 140);
+}
+
+.text-title-light {
+    font-size: 22px;
+    color: white;
+}
+
+.text-title-light-bigger {
+    font-size: 30px;
+    color: white;
+}
+
+.text-title {
+    font-size: 22px;
+    color: rgb(99, 99, 99);
+}
+
+.text-title-bigger {
+    font-size: 30px;
+    color: rgb(99, 99, 99);
+}
+
+.centrar-caja {
+    position: relative;
+    left: 40%;
+}
+
+.footer-box {
+    margin-top: 20%;
+}
+
+.footer-list {
+    height: 20px;
+}
+
+.footer-text {
+    color: rgb(99, 99, 99);
+}
+
+.contactus-container {
+    background-color: rgb(249, 161, 27);
+    width: 100%
+}
+
+.header-style {
+    font-size: 15px;
+    color: rgb(99, 99, 99);
+}
+
+.header-style-light {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.gris {
+    background-color: rgba(9, 66, 106);
+}
+
+.text-orange {
+    color: rgb(249, 161, 27);
+}
+
+.anim-text {
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+.anim-img {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blog-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

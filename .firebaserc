@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "landingpagecrm": {
+      "hosting": {
+        "crm-landingpage": [
+          "landingpagecrm"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "landingpagecrm"
+  }
+}
