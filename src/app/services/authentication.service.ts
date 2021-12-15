@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {auth} from 'firebase/app';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {User} from 'firebase';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   public user:User;
+  private ban:boolean=true;
   constructor(public afAuth:AngularFireAuth) { }
   async login(email:string, password:string){
     try{
@@ -15,8 +17,12 @@ export class AuthenticationService {
         email,
         password
       );
+    
+      this.ban=true;
+      console.log("hola");
       return result;
-    }catch(error){
+    }catch(error){    
+      this.ban=false;
       console.log(error);
     }
   }
@@ -26,9 +32,16 @@ export class AuthenticationService {
         email,
         password
       );
+      this.sendVerificationEmail();
       return result;
     }catch(error){
       console.log(error);
     }
+  }
+  async sendVerificationEmail():Promise<void>{
+    return (await this.afAuth.currentUser).sendEmailVerification();
+  }
+  getBan(){
+    return this.ban;
   }
 }

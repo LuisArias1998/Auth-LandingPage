@@ -2,12 +2,14 @@ import { Component, OnInit, HostListener, ElementRef, Renderer2 } from '@angular
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Location} from '@angular/common';
 import {FormGroup, FormControl} from '@angular/forms' 
-
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss']
+  styleUrls: ['./registro.component.scss'],
+  providers:[AuthenticationService]
 })
 export class RegistroComponent implements OnInit {
 
@@ -17,9 +19,12 @@ export class RegistroComponent implements OnInit {
   }); 
   private toggleButton: any;
   private sidebarVisible: boolean;
-  constructor(public modal:NgbModal, public el: ElementRef, private renderer: Renderer2, public location: Location) {
+
+  public user$:Observable<any> = this.auth.afAuth.user;
+
+  constructor(public modal:NgbModal, public el: ElementRef, private renderer: Renderer2, public location: Location, public auth:AuthenticationService) {
     this.sidebarVisible = false;
-   }
+    }
 
    @HostListener('window:scroll', ['$event'])
 
@@ -68,8 +73,12 @@ export class RegistroComponent implements OnInit {
          html.classList.remove('nav-open');
      };
      onRegister(){
+         const {email,password} = this.registerForm.value;
          console.log("form ",this.registerForm.value);
+         this.auth.register(email,password);
+         document.getElementById("openModalButton").click();
      }
+
  
  }
  

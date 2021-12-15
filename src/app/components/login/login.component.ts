@@ -1,19 +1,24 @@
 import { Component, OnInit, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { Location} from '@angular/common';
 import {FormGroup, FormControl} from '@angular/forms' 
+import { AuthenticationService } from '../../services/authentication.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers:[AuthenticationService]
 })
 export class LoginComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
+  public ban;
+
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   }); 
-  constructor(public el: ElementRef, private renderer: Renderer2, public location: Location) { 
+  constructor(public el: ElementRef, private renderer: Renderer2, public location: Location, public auth:AuthenticationService) { 
     this.sidebarVisible = false;
   }
   @HostListener('window:scroll', ['$event'])
@@ -61,9 +66,35 @@ sidebarToggle() {
       this.sidebarVisible = false;
       html.classList.remove('nav-open');
   };
-  onLogin(){
-    console.log("form ",this.loginForm.value);
+  async onLogin(){
+    const{email,password} =this.loginForm.value;
+    try{
+    const user= await this.auth.login(email,password);
+      if(user && user.user.emailVerified){
+        Swal.fire({
+          icon: 'success',
+          title: 'Completado!...',
+          text: 'Iniciaste sesión'
+        })
+      }else if(user){
+        Swal.fire({
+          icon: 'warning',
+          title: 'Atención',
+          text: 'Por favor confirme su email con el correo de verificación'
+        })
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!...',
+          text: 'Correo o contraseña incorrecta'
+        })
+      }
+    }catch(error){
+
+    }
+
  };
+
   date : Date = new Date();
 
 }

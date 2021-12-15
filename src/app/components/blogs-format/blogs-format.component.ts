@@ -6,11 +6,13 @@ import { Blogs } from '../../models/Blogs';
 import {AngularFireStorage} from '@angular/fire/storage'
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
-
+import {FormGroup, FormControl} from '@angular/forms' 
+import { AuthenticationService } from '../../services/authentication.service';
 @Component({
   selector: 'app-blogs-format',
   templateUrl: './blogs-format.component.html',
-  styleUrls: ['./blogs-format.component.scss']
+  styleUrls: ['./blogs-format.component.scss'],
+  providers:[AuthenticationService]
 })
 export class BlogsFormatComponent implements OnInit {
   
@@ -23,6 +25,10 @@ export class BlogsFormatComponent implements OnInit {
   public filePath:string;
   public ref;
   public urlImage;
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  }); 
 
   uploadPercent: Observable<number>;
 
@@ -38,7 +44,7 @@ export class BlogsFormatComponent implements OnInit {
     autor:""
   };
 
-  constructor(private storageService:StorageService, private blogsService:BlogsService, public storage: AngularFireStorage) {
+  constructor(private storageService:StorageService, private blogsService:BlogsService, public storage: AngularFireStorage,public auth:AuthenticationService ) {
   }
 
   ngOnInit(): void {
@@ -57,9 +63,13 @@ export class BlogsFormatComponent implements OnInit {
     this.descripcion = (<HTMLInputElement>document.getElementById("descripcion")).value;
     this.autor = (<HTMLInputElement>document.getElementById("autor")).value;
     if(!(this.titulo.length===0)){
+
       if(!(this.descripcion.length===0)){
+
         if(!(this.autor.length===0)){
+
             try{
+
               this.filePath="blogs/"+this.titulo+"_"+Date.now();
               this.ref=this.storage.ref(this.filePath);
               const task = this.storage.upload(this.filePath,this.archivos);
@@ -93,7 +103,9 @@ export class BlogsFormatComponent implements OnInit {
                   });
                 })
               ).subscribe();
+
             }catch(error){
+
               Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -101,18 +113,17 @@ export class BlogsFormatComponent implements OnInit {
               })
             }
 
-        
-          
-
-
         }else{
+
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'El autor está vacío'
           })
         }
+
       }else{
+
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -120,12 +131,21 @@ export class BlogsFormatComponent implements OnInit {
         })
 
       }
+
     }else{
+
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'El título está vacío'
       })
     }
+    
   }
+  onLogin(){
+    console.log("form ",this.loginForm.value);
+    const{email,password} =this.loginForm.value;
+    this.auth.login(email,password);
+
+ };
 }

@@ -111,9 +111,8 @@
                                 <br>
                                 <div class="row justify-content-center m-0">
                                     <button class="btn btn-rose btn-round" type="submit" style="background-color: rgb(249, 161, 27); border: none; width: 300px; height: 40px;">Iniciar paquete gratuito</button>
-
-
                                 </div>
+                                <button id="openModalButton" [hidden]="true" (click)="modal.open(correo)">Open Modal</button>
                             </div>
                         </form>
                     </div>
@@ -204,6 +203,38 @@
                 © 2021 Zitheonsoft | Todos los derechos reservados
             </p>
         </div>
+
+    </div>
+</ng-template>
+
+<ng-template #correo let-modal>
+    <div class="div" *ngIf="user$ |async as user; else loading">
+        <div class="modal-header">
+            <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title text-center"> <b> Verificación del correo electrónico </b> </h4>
+
+        </div>
+        <div class="modal-body text-center mt-2">
+            <p>Se ha enviado un mensaje de verificación a su correo electrónico
+                <strong>{{user?.email}}</strong>, favor de confirmarlo.</p>
+            <br>
+
+
+        </div>
+        <div class="modal-footer">
+
+            <div class="col-md-6 ml-auto mr-auto">
+                <p style="text-align: center;">
+                    © 2021 Zitheonsoft | Todos los derechos reservados
+                </p>
+            </div>
+
+        </div>
+        <ng-template #loading>
+            Loading...
+        </ng-template>
 
     </div>
 </ng-template>

@@ -23,7 +23,7 @@
                         <div class="card-header header-raised header-primary text-center" style="background-color: white;">
                             <h3 class="font-weight-bold" style="color: rgb(98, 98, 98);"><b>Bienvenido a Blogs</b></h3>
                         </div>
-                        <form role="form" id="contact-form" method="post">
+                        <form role="form" id="contact-form" method="post" [formGroup]="loginForm" (ngSubmit)="onLogin()">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
