@@ -35,7 +35,12 @@ export class AuthenticationService {
       this.sendVerificationEmail();
       return result;
     }catch(error){
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Atención',
+        text: error.code
+      })
+      console.log(error.code);
     }
   }
   async sendVerificationEmail():Promise<void>{

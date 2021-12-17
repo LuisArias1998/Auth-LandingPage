@@ -1,11 +1,11 @@
 export interface Register{
     id?:number;
-    firstname?:string;
-    lastname?:string;
-    username?:string;
-    password?:string;
+    first_name?:string;
+    last_name?:string;
+    charge?:string;
+    telephone?:string;
     email?:string;
-    confirmation_code?:string;
+    company?:string;
+    industry?:string;
     created_at?:string;
-
 }

@@ -9,8 +9,6 @@ export class BlogsService {
 
   API_URI="http://localhost:3000";
   constructor(private http:HttpClient) { 
-
-
   }
 
   getBlogs(){

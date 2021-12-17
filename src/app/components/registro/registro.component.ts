@@ -4,6 +4,10 @@ import { Location} from '@angular/common';
 import {FormGroup, FormControl} from '@angular/forms' 
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Observable } from 'rxjs/internal/Observable';
+import Swal from 'sweetalert2'
+
+import { RegistroService } from '../../services/registro.service';
+import { Register } from '../../models/register';
 
 @Component({
   selector: 'app-registro',
@@ -12,18 +16,35 @@ import { Observable } from 'rxjs/internal/Observable';
   providers:[AuthenticationService]
 })
 export class RegistroComponent implements OnInit {
-
+  
   registerForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   }); 
+  confirm_password:string;
+  fecha:string =  new Date().toISOString().split('T')[0];
+  register:Register={
+    id:0,
+    first_name:"",
+    last_name:"",
+    charge:"",
+    telephone:"",
+    email:"",
+    company:"",
+    industry:"",
+    created_at:this.fecha,
+  }
+  ban_check=true;
+
   private toggleButton: any;
   private sidebarVisible: boolean;
 
   public user$:Observable<any> = this.auth.afAuth.user;
 
-  constructor(public modal:NgbModal, public el: ElementRef, private renderer: Renderer2, public location: Location, public auth:AuthenticationService) {
-    this.sidebarVisible = false;
+  constructor(public modal:NgbModal, public el: ElementRef, private renderer: Renderer2, public location: Location,
+    public auth:AuthenticationService, public regSvc:RegistroService) {
+    
+        this.sidebarVisible = false;
     }
 
    @HostListener('window:scroll', ['$event'])
@@ -72,11 +93,73 @@ export class RegistroComponent implements OnInit {
          this.sidebarVisible = false;
          html.classList.remove('nav-open');
      };
-     onRegister(){
-         const {email,password} = this.registerForm.value;
-         console.log("form ",this.registerForm.value);
-         this.auth.register(email,password);
-         document.getElementById("openModalButton").click();
+
+     async onRegister(){
+        var element = <HTMLInputElement> document.getElementById("privacy");
+        var isChecked = element.checked;
+        const {email,password} = this.registerForm.value;
+        delete this.register.id;
+        this.register.first_name = (<HTMLInputElement>document.getElementById("nombre")).value;
+        this.register.last_name = (<HTMLInputElement>document.getElementById("apellido")).value;
+        this.register.charge = (<HTMLInputElement>document.getElementById("cargo")).value;
+        this.register.email = (<HTMLInputElement>document.getElementById("email")).value;
+        this.register.telephone = (<HTMLInputElement>document.getElementById("telefono")).value;
+        this.register.company = (<HTMLInputElement>document.getElementById("company")).value;
+        this.register.industry = (<HTMLInputElement>document.getElementById("industria")).value;
+        this.confirm_password = (<HTMLInputElement>document.getElementById("confirm_password")).value;
+        if(!(email.length===0) && !(password.length===0) && !(this.register.first_name.length===0) 
+        && !(this.register.last_name.length===0) && !(this.register.charge.length===0)
+        && !(this.register.telephone.length===0) && !(this.register.company.length===0)
+        && !(this.register.industry.length===0)){
+            
+            if(this.confirm_password===password){
+                
+                if(isChecked){
+                    console.log("form ",this.registerForm.value);
+                    const user = await this.auth.register(email,password);
+                    if(user){
+                        this.regSvc.createUser(this.register).subscribe(
+                            res=>{
+                              console.log("se mandó a crear");
+                              console.log(this.register);
+                              console.log(res);
+              
+                              Swal.fire({
+                                icon: 'success',
+                                title: 'Completado!...',
+                                text: 'Usuario registrado'
+                              })
+              
+                            },err=>Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Fallo en la base de datos'
+                            })
+                          )
+                    }
+                }else{
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Atención',
+                        text: 'Favor de aceptar el aviso de privacidad'
+                    })
+                }
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Atención',
+                    text: 'Las contraseñas no son iguales'
+                })
+            }
+
+            
+         }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Atención',
+                text: 'Favor de llenar todos los campos '
+            })
+         }
      }
 
  

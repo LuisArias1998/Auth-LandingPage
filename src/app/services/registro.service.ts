@@ -10,7 +10,10 @@ export class RegistroService {
   constructor(private http:HttpClient) { 
   }
 
-  createBlogs(register:Register){
-    return this.http.post(`${this.API_URI}/zitheonsoft/blogs/fill`,register);
+  createUser(register:Register){
+    return this.http.post(`${this.API_URI}/registro`,register);
+  }
+  createUserPago(register:Register){
+    return this.http.post(`${this.API_URI}/pago/registroPago`,register);
   }
 }

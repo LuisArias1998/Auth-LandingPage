@@ -44,7 +44,7 @@ export class BlogsFormatComponent implements OnInit {
     autor:""
   };
 
-  constructor(private storageService:StorageService, private blogsService:BlogsService, public storage: AngularFireStorage,public auth:AuthenticationService ) {
+  constructor(private blogsService:BlogsService, public storage: AngularFireStorage,public auth:AuthenticationService ) {
   }
 
   ngOnInit(): void {
