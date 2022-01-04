@@ -23,6 +23,9 @@ import { BlogsService } from '../services/blogs.service';
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { AuthenticationService } from '../services/authentication.service';
+import { RegistroService } from '../services/registro.service';
+import { UserService } from '../services/user.service';
 
 
 @NgModule({
@@ -47,6 +50,11 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
         FunctionsPageComponent,
     ],
 
-    providers:[BlogsService]
+    providers:[
+        BlogsService,
+        AuthenticationService,
+        RegistroService,
+        UserService
+    ]
 })
 export class ComponentsModule { }

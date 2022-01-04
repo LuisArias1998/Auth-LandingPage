@@ -3,11 +3,11 @@ import { Location} from '@angular/common';
 import {FormGroup, FormControl} from '@angular/forms' 
 import { AuthenticationService } from '../../services/authentication.service';
 import Swal from 'sweetalert2';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers:[AuthenticationService]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   private toggleButton: any;
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl('')
   }); 
-  constructor(public el: ElementRef, private renderer: Renderer2, public location: Location, public auth:AuthenticationService) { 
+  constructor(public el: ElementRef, private renderer: Renderer2, public location: Location, 
+    public auth:AuthenticationService, public afs: AngularFirestore) { 
     this.sidebarVisible = false;
   }
   @HostListener('window:scroll', ['$event'])

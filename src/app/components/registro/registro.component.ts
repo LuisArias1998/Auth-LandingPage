@@ -12,8 +12,7 @@ import { Register } from '../../models/register';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.scss'],
-  providers:[AuthenticationService]
+  styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
   

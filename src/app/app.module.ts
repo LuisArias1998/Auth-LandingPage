@@ -18,10 +18,13 @@ import { BlogsService } from './services/blogs.service';
 import { RegistroService } from './services/registro.service';
 import { UserService } from './services/user.service';
 
-import {AngularFireModule} from '@angular/fire';
+import { AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { initializeApp } from 'firebase-admin/app';
+import { AngularFirestoreModule }  from '@angular/fire/firestore'
+import { AuthenticationService } from './services/authentication.service';
 
 
 
@@ -41,13 +44,19 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
         HttpClientModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
-        AngularFireStorageModule
+        AngularFireStorageModule,
+        AngularFirestoreModule
     ],
     providers: [
         BlogsService,
         RegistroService,
-        UserService
+        UserService,
+        AuthenticationService
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+
+}

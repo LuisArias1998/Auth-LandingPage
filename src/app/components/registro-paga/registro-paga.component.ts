@@ -11,8 +11,7 @@ import { Register } from '../../models/register';
 @Component({
   selector: 'app-registro-paga',
   templateUrl: './registro-paga.component.html',
-  styleUrls: ['./registro-paga.component.scss'],
-  providers:[AuthenticationService]
+  styleUrls: ['./registro-paga.component.scss']
 })
 export class RegistroPagaComponent implements OnInit {
   private toggleButton: any;
