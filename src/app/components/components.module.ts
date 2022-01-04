@@ -4,7 +4,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 
-import { ImageUploadModule } from '../shared/image-upload/image-upload.module';
 
 import { HttpClientModule } from '@angular/common/http'
 
@@ -34,7 +33,6 @@ import { UserService } from '../services/user.service';
         FormsModule,
         NgbModule,
         JwBootstrapSwitchNg2Module,
-        ImageUploadModule,
         RouterModule,
         ReactiveFormsModule,
         HttpClientModule

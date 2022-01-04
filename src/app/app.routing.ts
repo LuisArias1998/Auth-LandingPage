@@ -26,7 +26,6 @@ const routes: Routes =[
     { path: 'registro',             component: RegistroComponent },
     { path: 'specific/blog',        component: SpecificBlogComponent },
     { path: 'pago/registroPago',    component: RegistroPagaComponent },
-
     { path: '', redirectTo: 'presentation', pathMatch: 'full' }
 ];
 

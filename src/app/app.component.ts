@@ -3,7 +3,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 import 'rxjs/add/operator/filter';
 import { Location, PopStateEvent } from '@angular/common';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+
 
 var didScroll;
 var lastScrollTop = 0;

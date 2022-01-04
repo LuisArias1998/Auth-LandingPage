@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
 import { PresentationComponent } from './presentation.component';
-import { NavbarComponent } from '../shared/navbar/navbar.component';
+
 
 @NgModule({
     imports: [
@@ -17,7 +17,7 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
         NgbModule
     ],
     declarations: [ PresentationComponent,
-    NavbarComponent ],
+    ],
     exports:[ PresentationComponent ],
     providers: []
 })

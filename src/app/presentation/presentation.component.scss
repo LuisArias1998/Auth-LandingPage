@@ -143,3 +143,12 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.gris {
+    background-color: rgba(9, 66, 106);
+}
+
+::after {
+    color: rgb(99, 99, 99);
+    background-color: rgba(9, 66, 106);
+}

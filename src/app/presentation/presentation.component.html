@@ -1,6 +1,49 @@
+<!--NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute nav-down fixed-top gris" color-on-scroll="500" id="naver">
+    <div class="container">
+        <div class="navbar-translate">
+            <input type="image" (click)="scrollToTop()" class="navbar-brand" src="./assets/img/presentation-page/Logo-CV2.png" style="width: 95px; height: 115px;" />
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar2" style="background-color: white;"></span>
+                <span class="navbar-toggler-bar bar3" style="background-color: white;"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a (click)="scrollToFun()" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Funciones</a>
+                </li>
+                <li>
+                    <a (click)="scrollToPrecio()" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Precio</a>
+                </li>
+                <li>
+                    <a (click)="scrollToBlog()" class="btn btn-link btn-neutral header-style-light" style="font-size: 16px;">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a [routerLink]="['/login']" href="javascript:void(0)" class="btn btn-link btn-neutral" style="font-size: 14px;">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" [routerLink]="['/contactus']" class="btn btn-link btn-neutral" style="font-size: 14px;">Contacto</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/registro']" class="btn btn-rose btn-round" style="background-color: rgb(40, 40, 175); border: none;">Prueba gratis</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<a id="home"></a>
+<!--TERMINA EL NAVBAR-->
+
+
+
 <!--PRIMERA SECCIÓN DE LA PÁGINA-->
-<app-navbar></app-navbar>
-<a cla name="home" id="home"></a>
 <div class="wrapper">
     <div class="page-header anim-img" style="background-image: url('./assets/img/landingpageimgV2.jpg')">
         <div class="main-page-crm" style="">
@@ -25,7 +68,8 @@
 <!--TERMINA LA PRIMERA SECCIÓN DE LA PÁGINA-->
 
 <!--SEGUNDA SECCIÓN DE LA PÁGINA-->
-<a id="funciones"></a>
+
+<section id="funciones"></section>
 <div class="section page-header" style="background-image: url('./assets/img/presentation-page/LogoFunc.png'); max-height: 2000px; ">
     <div class="container">
         <div class="row justify-content-center m-0">
